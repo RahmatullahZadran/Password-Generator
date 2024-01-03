@@ -90,7 +90,11 @@ var specialCharacters = [
   
   // Function to prompt user for password options
   function getPasswordOptions() {
-  
+    prompt("How many characters would you like your password to be?");
+    prompt("How many special characters would you like?");
+    prompt("How many numeric characters would you like?");
+    prompt("How many lowercase characters would you like?");
+    prompt("How many uppercase characters would you like?");
   }
   
   // Function for getting a random element from an array
