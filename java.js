@@ -151,7 +151,7 @@ var specialCharacters = [
   function generatePasswords() {
 
 //The while loop will ensure that the password length is between 8 and 128 characters
-let passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
+let passwordLength = parseInt(prompt("How long would you like your password to be?"));
 while (passwordLength < 8 || passwordLength > 128) {
   alert("Password length must be a number between 8 and 128 characters. Please try again.");
   passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
@@ -180,19 +180,15 @@ while (passwordLength < 8 || passwordLength > 128) {
 
 
 
-      let passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
+      let passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?(The Remaining characters will be randomly generated)"));
     while (passwordSpecial < 1 || passwordSpecial > passwordLength - 4 || isNaN(passwordSpecial)) {
       alert("Special character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric - 4) + ". Please try again.");
       passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
     }
-      
-    }
-    
-    
-
-
-    
-
-
-
+      console.log("Password Length: " + passwordLength);
+      console.log("Lowercase: " + passwordLowerCase);
+      console.log("Uppercase: " + passwordUpperCase);
+      console.log("Numeric: " + passwordNumeric);
+      console.log("Special: " + passwordSpecial);
+  }
 generatePasswords();
