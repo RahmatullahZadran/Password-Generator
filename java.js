@@ -147,13 +147,17 @@ var specialCharacters = [
   // generateBtn.addEventListener('click', writePassword);
 
   
-
+// create the fucntion that will generate the password
   function generatePasswords() {
-    let passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
+
+//The while loop will ensure that the password length is between 8 and 128 characters
+let passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
 while (passwordLength < 8 || passwordLength > 128) {
   alert("Password length must be a number between 8 and 128 characters. Please try again.");
   passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
 }
+
+//This while loop will ensure a number is give for lower case, and cant be greater than the password length
     let passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?"));
     while (passwordLowerCase < 1 || passwordLowerCase > passwordLength - 4 || isNaN(passwordLowerCase)) {
       alert("Lowercase character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
@@ -161,8 +165,8 @@ while (passwordLength < 8 || passwordLength > 128) {
     }
     let passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
     while (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
-      alert("Uppercase character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
-      generatePassword();
+      alert("Uppercase character count must be a number between 1 and " + (passwordLength - passwordLowerCase - 4) + ". Please try again.");
+      passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
     }
     let passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));
     while (passwordNumeric < 1 || passwordNumeric > passwordLength - 4 || isNaN(passwordNumeric)) {
