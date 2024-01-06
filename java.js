@@ -101,15 +101,24 @@ var specialCharacters = [
     }
   }
   
-  function generatePasswordUpperCase(length) {
+  function generatePasswordUpperCase(passwordLength) {
     var passwordUpperCase = prompt("How many uppercase characters would you like your password to have?");
-    if (passwordUpperCase < 1 || passwordUpperCase > (length - 4) || isNaN(passwordUpperCase)) {
+    if (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
       alert("Uppercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
       generatePasswordUpperCase(length);
     } else {
-      // Generate the password using the specified length and uppercase count
-      generatePassword(length, parseInt(passwordUpperCase, 10));
+     
+    generatePasswordLowerCase(parseInt(passwordUpperCase, 10));
     }
+  }
+
+  function generatePasswordLowerCase(length, Uppercase) {
+    var passwordLowerCase = prompt("How many lowercase characters would you like your password to have?");
+    if (passwordLowerCase < 1 || passwordLowerCase > (length - Uppercase) || isNaN(passwordLowerCase)) {
+      alert("Lowercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
+      generatePasswordLowerCase(length);
+    } 
+
   }
 
   
@@ -137,4 +146,5 @@ var specialCharacters = [
   // // Add event listener to generate button
   // generateBtn.addEventListener('click', writePassword);
 
+  
   generatePasswordLength();
