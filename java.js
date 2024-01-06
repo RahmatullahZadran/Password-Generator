@@ -88,38 +88,38 @@ var specialCharacters = [
     'Z'
   ];
   
-   
   
-  // Function to prompt user for password options
-  function generatePasswordLength() {
-    var passwordLength = prompt("How many characters would you like your password to be?");
-    if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-      alert("Password length must be a number between 8 and 128 characters. Please try again.");
-      generatePasswordLength();
-    } else {
-      generatePasswordUpperCase(parseInt(passwordLength, 10));
-    }
-  }
+// var passwordLength = prompt("How many characters would you like your password to be?");
   
-  function generatePasswordUpperCase(passwordLength) {
-    var passwordUpperCase = prompt("How many uppercase characters would you like your password to have?");
-    if (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
-      alert("Uppercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
-      generatePasswordUpperCase(length);
-    } else {
+//   // Function to prompt user for password options
+//   function generatePasswordLength() {
+//     var passwordLength = prompt("How many characters would you like your password to be?");
+//     if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+//       alert("Password length must be a number between 8 and 128 characters. Please try again.");
+//       generatePasswordLength();
+//     }
+//   }
+//   generatePasswordLength();
+
+  // function generatePasswordUpperCase(passwordLength) {
+  //   var passwordUpperCase = prompt("How many uppercase characters would you like your password to have?");
+  //   if (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
+  //     alert("Uppercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
+  //     generatePasswordUpperCase(length);
+  //   } else {
      
-    generatePasswordLowerCase(parseInt(passwordUpperCase, 10));
-    }
-  }
+  //   generatePasswordLowerCase(parseInt(passwordUpperCase, 10));
+  //   }
+  // }
 
-  function generatePasswordLowerCase(length, Uppercase) {
-    var passwordLowerCase = prompt("How many lowercase characters would you like your password to have?");
-    if (passwordLowerCase < 1 || passwordLowerCase > (length - Uppercase) || isNaN(passwordLowerCase)) {
-      alert("Lowercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
-      generatePasswordLowerCase(length);
-    } 
+  // function generatePasswordLowerCase(length, Uppercase) {
+  //   var passwordLowerCase = prompt("How many lowercase characters would you like your password to have?");
+  //   if (passwordLowerCase < 1 || passwordLowerCase > (length - Uppercase) || isNaN(passwordLowerCase)) {
+  //     alert("Lowercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
+  //     generatePasswordLowerCase(length);
+  //   } 
 
-  }
+  // }
 
   
   // // Function for getting a random element from an array
@@ -147,4 +147,41 @@ var specialCharacters = [
   // generateBtn.addEventListener('click', writePassword);
 
   
-  generatePasswordLength();
+
+  function generatePasswords() {
+    let passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
+while (passwordLength < 8 || passwordLength > 128) {
+  alert("Password length must be a number between 8 and 128 characters. Please try again.");
+  passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
+}
+    let passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?"));
+    while (passwordLowerCase < 1 || passwordLowerCase > passwordLength - 4 || isNaN(passwordLowerCase)) {
+      alert("Lowercase character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
+      passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?"));
+    }
+    let passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
+    while (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
+      alert("Uppercase character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
+      generatePassword();
+    }
+    let passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));
+    while (passwordNumeric < 1 || passwordNumeric > passwordLength - 4 || isNaN(passwordNumeric)) {
+      alert("Numeric character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
+      generatePassword();
+    }
+      let passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
+    while (passwordSpecial < 1 || passwordSpecial > passwordLength - 4 || isNaN(passwordSpecial)) {
+      alert("Special character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
+      generatePassword();
+    }
+      
+    }
+    
+    
+
+
+    
+
+
+
+generatePasswords();
