@@ -88,33 +88,29 @@ var specialCharacters = [
     'Z'
   ];
   
-  // Function to generate 
+   
   
-  generatePasswordLenght ();
   // Function to prompt user for password options
-  function generatePasswordLenght() { 
+  function generatePasswordLength() {
     var passwordLength = prompt("How many characters would you like your password to be?");
-    if (passwordLength < 8 || passwordLength > 128) {
-      alert("Password length must be between 8 and 128 characters. Please try again.");
-      generatePasswordLenght();
-      
+    if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+      alert("Password length must be a number between 8 and 128 characters. Please try again.");
+      generatePasswordLength();
     } else {
-      generatePasswordUpperCase();
+      generatePasswordUpperCase(parseInt(passwordLength, 10));
     }
+  }
+  
+  function generatePasswordUpperCase(length) {
+    var passwordUpperCase = prompt("How many uppercase characters would you like your password to have?");
+    if (passwordUpperCase < 1 || passwordUpperCase > (length - 4) || isNaN(passwordUpperCase)) {
+      alert("Uppercase character count must be a number between 1 and " + (length - 4) + ". Please try again.");
+      generatePasswordUpperCase(length);
+    } else {
+      // Generate the password using the specified length and uppercase count
+      generatePassword(length, parseInt(passwordUpperCase, 10));
     }
-  
-    function generatePasswordUpperCase() {
-      let passwordUpperCase = prompt("How many characters would you like your password to be?");
-      if (passwordLength < 8 || passwordLength > 128) {
-        alert("Password length must be between 8 and 128 characters. Please try again.");
-        generatePasswordLenght();
-        
-      } else {
-        
-      }
-      }
-  
-
+  }
 
   
   // // Function for getting a random element from an array
@@ -140,3 +136,5 @@ var specialCharacters = [
   
   // // Add event listener to generate button
   // generateBtn.addEventListener('click', writePassword);
+
+  generatePasswordLength();
