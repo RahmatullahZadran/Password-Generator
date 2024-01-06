@@ -163,20 +163,27 @@ while (passwordLength < 8 || passwordLength > 128) {
       alert("Lowercase character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
       passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?"));
     }
+
+//This while loop will ensure a number is give for upper case, and cant be greater than the password length
     let passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
     while (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
       alert("Uppercase character count must be a number between 1 and " + (passwordLength - passwordLowerCase - 4) + ". Please try again.");
       passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
     }
+
+//This while loop will ensure a number is give for numeric, and cant be greater than the password length
     let passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));
     while (passwordNumeric < 1 || passwordNumeric > passwordLength - 4 || isNaN(passwordNumeric)) {
-      alert("Numeric character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
-      generatePassword();
+      alert("Numeric character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - 4) + ". Please try again.");
+      passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));
     }
+
+
+
       let passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
     while (passwordSpecial < 1 || passwordSpecial > passwordLength - 4 || isNaN(passwordSpecial)) {
-      alert("Special character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
-      generatePassword();
+      alert("Special character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric - 4) + ". Please try again.");
+      passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
     }
       
     }
