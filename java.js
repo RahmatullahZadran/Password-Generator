@@ -159,30 +159,30 @@ while (passwordLength < 8 || passwordLength > 128) {
 
 //This while loop will ensure a number is give for lower case, and cant be greater than the password length
     let passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?"));
-    while (passwordLowerCase < 1 || passwordLowerCase > passwordLength - 4 || isNaN(passwordLowerCase)) {
-      alert("Lowercase character count must be a number between 1 and " + (passwordLength - 4) + ". Please try again.");
+    while (passwordLowerCase < 1 || passwordLowerCase > passwordLength - 3|| isNaN(passwordLowerCase)) {
+      alert("Lowercase character count must be a number between 1 and " + (passwordLength - 3) + ". Please try again.");
       passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?"));
     }
 
 //This while loop will ensure a number is give for upper case, and cant be greater than the password length
     let passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
-    while (passwordUpperCase < 1 || passwordUpperCase > passwordLength - 4 || isNaN(passwordUpperCase)) {
-      alert("Uppercase character count must be a number between 1 and " + (passwordLength - passwordLowerCase - 4) + ". Please try again.");
+    while (passwordUpperCase < 1 || passwordUpperCase > passwordLength - passwordLowerCase - 2 || isNaN(passwordUpperCase)) {
+      alert("Uppercase character count must be a number between 1 and " + (passwordLength - passwordLowerCase - 2) + ". Please try again.");
       passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));
     }
 
 //This while loop will ensure a number is give for numeric, and cant be greater than the password length
     let passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));
-    while (passwordNumeric < 1 || passwordNumeric > passwordLength - 4 || isNaN(passwordNumeric)) {
-      alert("Numeric character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - 4) + ". Please try again.");
+    while (passwordNumeric < 1 || passwordNumeric > passwordLength - passwordLowerCase - passwordUpperCase - 1 || isNaN(passwordNumeric)) {
+      alert("Numeric character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - 1) + ". Please try again.");
       passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));
     }
 
 
 
       let passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?(The Remaining characters will be randomly generated)"));
-    while (passwordSpecial < 1 || passwordSpecial > passwordLength - 4 || isNaN(passwordSpecial)) {
-      alert("Special character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric - 4) + ". Please try again.");
+    while (passwordSpecial < 1 || passwordSpecial > passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric || isNaN(passwordSpecial)) {
+      alert("Special character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric) + ". Please try again.");
       passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
     }
         console.log("Password Length: " + passwordLength);
@@ -192,4 +192,3 @@ while (passwordLength < 8 || passwordLength > 128) {
       console.log("Special: " + passwordSpecial);
   }
 generatePasswords();
-  
