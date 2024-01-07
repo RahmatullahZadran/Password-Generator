@@ -185,10 +185,11 @@ while (passwordLength < 8 || passwordLength > 128) {
       alert("Special character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric - 4) + ". Please try again.");
       passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
     }
-      console.log("Password Length: " + passwordLength);
+        console.log("Password Length: " + passwordLength);
       console.log("Lowercase: " + passwordLowerCase);
       console.log("Uppercase: " + passwordUpperCase);
       console.log("Numeric: " + passwordNumeric);
       console.log("Special: " + passwordSpecial);
   }
 generatePasswords();
+  
