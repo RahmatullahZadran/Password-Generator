@@ -195,7 +195,7 @@ while (passwordLength < 8 || passwordLength > 128) { // The while loop will ensu
       let passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?(The Remaining characters will be randomly generated)")); // Creates a variable for the password length
     while (passwordSpecial < 1 || passwordSpecial > passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric || isNaN(passwordSpecial)) { //This loop will ensure that the special characters are not greater than the password length
       alert("Special character count must be a number between 1 and " + (passwordLength - passwordLowerCase - passwordUpperCase - passwordNumeric) + ". Please try again."); // Alerts the user if the password length is not between 8 and 128 characters
-      passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?"));
+      passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?(The Remaining characters will be randomly generated)"));
     }
 
 
