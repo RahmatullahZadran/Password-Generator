@@ -277,18 +277,18 @@ console.log("Generated Password:", generatePasswordUpperCaseNumber);
 console.log("Generated Password:", passwordUpperCase);
 
 
-function generatePasswordUpperCase() {
-  //This while loop will ensure a number is give for upper case, and cant be greater than the password length 
-    let passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));  // Creates a variable for the password length
-    while (passwordUpperCase < 1 || passwordUpperCase > passwordLength - generatePasswordLowerCaseNumber - 2 || isNaN(passwordUpperCase)) {  //This while loop will ensure a number is give for upper case, and cant be greater than the password length
-      alert("Uppercase character count must be a number between 1 and " + (passwordLength - generatePasswordLowerCaseNumber - 2) + ". Please try again.");  // Alerts the user if the password length is not between 8 and 128 characters
-      passwordUpperCase = parseInt(prompt("How many uppercase characters would you like your password to have?"));  // Creates a variable for the password length again, making it a loop
+function generatePasswordNumeric() {
+    //This while loop will ensure a number is give for numeric, and cant be greater than the password length
+    let passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));  // Creates a variable for the password length
+    while (passwordNumeric < 1 || passwordNumeric > passwordLength - generatePasswordLowerCaseNumber - generatePasswordUpperCaseNumber - 1 || isNaN(passwordNumeric)) {  //This while loop will ensure a number is give for numeric, and cant be greater than the password length
+      alert("Numeric character count must be a number between 1 and " + (passwordLength - generatePasswordLowerCaseNumber - generatePasswordUpperCaseNumber - 1) + ". Please try again.");  // Alerts the user if the password length is not between 8 and 128 characters
+      passwordNumeric = parseInt(prompt("How many numeric characters would you like your password to have?"));  // Creates a variable for the password length again, making it a loop
     }
    
-   let charset = upperCasedCharacters;
+   let charset = numericCharacters;
    let password = "";
    
-   for (let i = 0; i < passwordUpperCase; i++) {
+   for (let i = 0; i < passwordNumeric; i++) {
      let randomIndex = Math.floor(Math.random() * charset.length);
      password += charset[randomIndex];
    }
@@ -296,8 +296,52 @@ function generatePasswordUpperCase() {
    return password;
  }
  
- var passwordUpperCase = generatePasswordUpperCase();
- var generatePasswordUpperCaseNumber = passwordUpperCase.length;
-console.log("Generated Password:", generatePasswordUpperCaseNumber);
-console.log("Generated Password:", passwordUpperCase);
+ var passwordNumeric = generatePasswordNumeric();
+ var generatePasswordNumericNumber = passwordUpperCase.length;
+console.log("Generated Password:", generatePasswordNumericNumber);
+console.log("Generated Password:", passwordNumeric);
  
+
+function generatePasswordSpecial() {
+        // This loop will ensure that the special characters are not greater than the password length
+      var passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?(The Remaining characters will be randomly generated)")); // Creates a variable for the password length
+    while (passwordSpecial < 1 || passwordSpecial > passwordLength - generatePasswordLowerCaseNumber - generatePasswordUpperCaseNumber - generatePasswordNumericNumber || isNaN(passwordSpecial)) { //This loop will ensure that the special characters are not greater than the password length
+      alert("Special character count must be a number between 1 and " + (passwordLength - generatePasswordLowerCaseNumber - generatePasswordUpperCaseNumber - generatePasswordNumericNumber) + ". Please try again."); // Alerts the user if the password length is not between 8 and 128 characters
+      passwordSpecial = parseInt(prompt("How many special characters would you like your password to have?(The Remaining characters will be randomly generated)"));
+    }
+ 
+ let charset = specialCharacters;
+ let password = "";
+ 
+ for (let i = 0; i < passwordSpecial; i++) {
+   let randomIndex = Math.floor(Math.random() * charset.length);
+   password += charset[randomIndex];
+ }
+ 
+ return password;
+}
+
+var passwordSpecial = generatePasswordSpecial();
+var generatePasswordSpecialNumber = passwordSpecial.length;
+console.log("Generated Password:", generatePasswordSpecialNumber);
+console.log("Generated Password:", passwordSpecial);
+
+
+function generateRemaining() {
+  var remainingCharacters = passwordLength - generatePasswordLowerCaseNumber - generatePasswordUpperCaseNumber - generatePasswordNumericNumber - generatePasswordSpecialNumber;
+let charset = numericCharacters + lowerCasedCharacters + upperCasedCharacters + specialCharacters;
+let password = "";
+
+for (let i = 0; i < remainingCharacters; i++) {
+let randomIndex = Math.floor(Math.random() * charset.length);
+password += charset[randomIndex];
+}
+
+return password;
+}
+
+var remainingPassword = generateRemaining();
+console.log("Remaining Password:", remainingPassword);
+var randomPassword = passwordLowerCase + passwordUpperCase + passwordNumeric + passwordSpecial + remainingPassword;
+console.log("Random Password:", randomPassword);
+
