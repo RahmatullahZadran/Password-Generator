@@ -223,24 +223,24 @@ let passwordLength = generateLength();
 console.log("Generated Password:", passwordLength);
 
 
-// function generateCharacters() {
-//   let passwordLength = parseInt(prompt("How long would you like your password to be?"));
+function generatePasswordLowerCase() {
+ //This while loop will ensure a number is give for lower case, and cant be greater than the password length 
+    let passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?")); // Creates a variable for the password length
+    while (passwordLowerCase < 1 || passwordLowerCase > passwordLength - 3|| isNaN(passwordLowerCase)) { //This while loop will ensure a number is give for lower case, and cant be greater than the password length
+      alert("Lowercase character count must be a number between 1 and " + (passwordLength - 3) + ". Please try again."); // Alerts the user if the password length is not between 8 and 128 characters
+      passwordLowerCase = parseInt(prompt("How many lowercase characters would you like your password to have?")); // Creates a variable for the password length again, making it a loop
+    }
   
-//   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-//     alert("Password length must be a number between 8 and 128 characters. Please try again.");
-//     passwordLength = parseInt(prompt("How many characters would you like your password to be?"));
-//   }
+  let charset = lowerCasedCharacters;
+  let password = "";
   
-//   let charset = specialCharacters;
-//   let password = "";
+  for (let i = 0; i < passwordLowerCase; i++) {
+    let randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
   
-//   for (let i = 0; i < passwordLength; i++) {
-//     let randomIndex = Math.floor(Math.random() * charset.length);
-//     password += charset[randomIndex];
-//   }
-  
-//   return password;
-// }
+  return password;
+}
 
-// let generatedPassword = generatePasswords();
-// console.log("Generated Password:", generatedPassword);
+let generatedLowerCase = generatePasswordLowerCase();
+console.log("Generated Password:", generatedLowerCase);
