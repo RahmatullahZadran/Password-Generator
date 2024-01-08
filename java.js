@@ -220,7 +220,7 @@ function generateLength() {
   return passwordLength;
 }
 var passwordLength = generateLength();
-console.log("Generated Password:", passwordLength);
+console.log("Password Length:", passwordLength);
 
 
 function generatePasswordLowerCase() {
@@ -246,8 +246,8 @@ function generatePasswordLowerCase() {
 
 var passwordLowerCase = generatePasswordLowerCase();
 var generatePasswordLowerCaseNumber = passwordLowerCase.length;
-console.log("Generated Password:", generatePasswordLowerCaseNumber);
-console.log("Generated Password:", passwordLowerCase);
+console.log("Lowercase Character Count:", generatePasswordLowerCaseNumber);
+console.log("Lowercase Password:", passwordLowerCase);
 
 
 
@@ -273,8 +273,8 @@ function generatePasswordUpperCase() {
  
  var passwordUpperCase = generatePasswordUpperCase();
  var generatePasswordUpperCaseNumber = passwordUpperCase.length;
-console.log("Generated Password:", generatePasswordUpperCaseNumber);
-console.log("Generated Password:", passwordUpperCase);
+console.log("Uppercase Character Count:", generatePasswordUpperCaseNumber);
+console.log("Uppercase Password:", passwordUpperCase);
 
 
 function generatePasswordNumeric() {
@@ -298,8 +298,8 @@ function generatePasswordNumeric() {
  
  var passwordNumeric = generatePasswordNumeric();
  var generatePasswordNumericNumber = passwordUpperCase.length;
-console.log("Generated Password:", generatePasswordNumericNumber);
-console.log("Generated Password:", passwordNumeric);
+console.log("Numeric Character Count:", generatePasswordNumericNumber);
+console.log("Numeric Character Count password:", passwordNumeric);
  
 
 function generatePasswordSpecial() {
@@ -323,8 +323,8 @@ function generatePasswordSpecial() {
 
 var passwordSpecial = generatePasswordSpecial();
 var generatePasswordSpecialNumber = passwordSpecial.length;
-console.log("Generated Password:", generatePasswordSpecialNumber);
-console.log("Generated Password:", passwordSpecial);
+console.log("Special Character Count:", generatePasswordSpecialNumber);
+console.log("Special Character Count password:", passwordSpecial);
 
 
 function generateRemaining() {
@@ -341,7 +341,11 @@ return password;
 }
 
 var remainingPassword = generateRemaining();
-console.log("Remaining Password:", remainingPassword);
 var randomPassword = passwordLowerCase + passwordUpperCase + passwordNumeric + passwordSpecial + remainingPassword;
+var remainingCharacters = passwordLength - generatePasswordLowerCaseNumber - generatePasswordUpperCaseNumber - generatePasswordNumericNumber - generatePasswordSpecialNumber;
+console.log("Remaining Characters:", remainingCharacters);
+console.log("Remaining Password:", remainingPassword);
 console.log("Random Password:", randomPassword);
+
+
 
