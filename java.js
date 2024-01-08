@@ -349,3 +349,11 @@ console.log("Random Password:", randomPassword);
 
 
 
+function replaceComment() {
+  var commentElement = document.getElementById('password');
+
+  if (commentElement) {
+      // Replace the comment with new content
+      commentElement.innerHTML = randomPassword;
+  }
+}
